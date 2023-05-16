@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PoliGranColAppIoT.Views.HomePage"
+             Title="Consultar">
+    
+    <Grid RowDefinitions="2*,*" Margin="0,0,0,0">
+        <VerticalStackLayout Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame BorderColor="Gray"
+               CornerRadius="10"
+               HasShadow="True"
+               Margin="0,20,0,0"
+               ZIndex="0"
+               Padding="8">
+                <Frame.Shadow>
+                    <Shadow Brush="Black"
+                Offset="20,20"
+                Radius="10"
+                Opacity="0.9" />
+                </Frame.Shadow>
+                <StackLayout>
+                    <VerticalStackLayout Padding="10">
+                        <VerticalStackLayout Padding="0" Margin="0,0,0,0">
+                            <Picker Title="Selecciona un dispositivo..." ItemsSource="{Binding DeviceList, Mode=TwoWay}" ItemDisplayBinding="{Binding Name}"
+                                    SelectedItem="{Binding DeviceSelected}"
+                                    FontSize="16" Margin="10">
+                            </Picker>
+
+                            <Button x:Name="GetAllStatusButton" Command="{Binding GetAllStatus}" Text="Ver todos los estados" Margin="10"></Button>
+
+                            <Label Text="Atributos especificos" FontSize="16" Margin="0,30,0,0" FontAttributes="Bold"/>
+                            <Entry x:Name="StatusSearchEntry" Margin="5,0,0,0" Text="{Binding StatusSearch, Mode=TwoWay}" Placeholder="Buscar atributo(s)" FontSize="18" />
+                            <Button x:Name="GetCurrentStatusButton" Command="{Binding GetCurrentStatus}" Text="Ver estado actual" Margin="10"></Button>
+                        </VerticalStackLayout>
+
+
+                    </VerticalStackLayout>
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

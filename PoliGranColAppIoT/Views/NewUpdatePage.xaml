@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PoliGranColAppIoT.Views.NewUpdatePage"
+             Title="Crear / Actualizar">
+    
+    <Grid RowDefinitions="5*,*"  Margin="0,0,0,0">
+        <VerticalStackLayout Padding="30" VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame BorderColor="Gray"
+               CornerRadius="10"
+               HasShadow="True"
+               Margin="0,0,0,0"
+               ZIndex="0"
+               Padding="8">
+                <Frame.Shadow>
+                    <Shadow Brush="Black"
+                
+                Radius="10"
+                Opacity="0.9" />
+                </Frame.Shadow>
+                <StackLayout>
+                    <VerticalStackLayout Padding="10">
+                        <VerticalStackLayout Padding="0" Margin="0,0,0,0">
+                            <Picker Title="Selecciona un dispositivo..." ItemsSource="{Binding DeviceList, Mode=TwoWay}" ItemDisplayBinding="{Binding Name}"
+                                    SelectedItem="{Binding DeviceSelected}"
+                                    FontSize="16" Margin="10">
+                            </Picker>
+
+                            <Label Text="Actualizar valor de atributos" FontSize="16" Margin="10" FontAttributes="Bold"/>
+                            <Picker Title="Selecciona un atributo..." ItemsSource="{Binding AttributesList, Mode=TwoWay}" ItemDisplayBinding="{Binding Key}"
+                                    SelectedItem="{Binding AttributeSelected}"
+                                    FontSize="16" Margin="10">
+                            </Picker>
+                            <Entry x:Name="UpdateStatusEntry" Margin="5,0,0,0" Text="{Binding UpdateStatus, Mode=TwoWay}" Placeholder="Actualizar atributo" FontSize="18" />
+                            <Button x:Name="InsertActionOneButton" Command="{Binding InsertActionOne}" Text="Actualizar acción" Margin="10" />
+                            <Label Text="Agregar un nuevo atributo" FontSize="16" Margin="10" FontAttributes="Bold"/>
+                            <Entry x:Name="NewStatusNameEntry" Margin="5,0,0,0" Text="{Binding NewStatusName, Mode=TwoWay}" Placeholder="Nombre" FontSize="18" />
+                            <Entry x:Name="NewStatusEntry" Margin="5,0,0,0" Text="{Binding NewStatus, Mode=TwoWay}" Placeholder="Valor" FontSize="18" />
+                            <Button x:Name="InsertActionButton" Command="{Binding InsertAction}" Text="Insertar nueva acción" Margin="10"></Button>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
